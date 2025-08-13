@@ -11,7 +11,7 @@ if(process.env.NODE_ENV === 'production'){
   options.schema = process.env.SCHEMA;
 }
 
-module.exports = {
+module.exports = { 
 
 
     up: async (queryInterface, Sequelize) => {
@@ -34,10 +34,35 @@ module.exports = {
           username: 'FakeUser2',
           hashedPassword: bcrypt.hashSync('password3'),
           profileImg: ''
+        },
+        {
+          email: 'user3@user.io',
+          username: 'FakeUser3',
+          hashedPassword: bcrypt.hashSync('password3'),
+          profileImg: ''
+        },
+        {
+          email: 'user4@user.io',
+          username: 'FakeUser4',
+          hashedPassword: bcrypt.hashSync('password3'),
+          profileImg: ''
+        },
+        {
+          email: 'user5@user.io',
+          username: 'FakeUser5',
+          hashedPassword: bcrypt.hashSync('password3'),
+          profileImg: ''
+        },
+        {
+          email: 'user6@user.io',
+          username: 'FakeUser6',
+          hashedPassword: bcrypt.hashSync('password3'),
+          profileImg: ''
         }
+
+
       ], {})
     },
-
 
 
     down: async (queryInterface, Sequelize) => {

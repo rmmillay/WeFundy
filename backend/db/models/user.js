@@ -2,7 +2,7 @@
 const {
   Model,
   Validator
-} = require('sequelize');
+} = Require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -11,8 +11,36 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      // define association here\ 
+
+      // User.belongsTo(models.fundraiser, {
+      //   foreignKey: "fundraiserId",
+      //   onDelete: "CASCADE",
+      //   hooks: true
+      // });
+      // User.belongsTo(models.donation, {
+      //   foreignKey: "donationId",
+      //   onDelete: "CASCADE",
+      //   hooks: true
+      // });
+
+      User.hasMany(models.donation, {
+        foreignKey: "userId",
+        onDelete: "CASCADE",
+        hooks: true
+      });
+      User.hasMany(models.fundraiser, {
+        foreignKey: "userId",
+        onDelete: "CASCADE",
+        hooks: true
+      });
+      User.hasMany(models.comments, {
+        foreignKey: "userId", 
+        onDelete: "CASCADE",
+        hooks: true
+      });
     }
+
   }
   User.init({
     username: {
@@ -43,7 +71,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     profileImg: {
       type: DataTypes.STRING,
-      allowNull: false,
       defaultValue: ''
     }
   }, {

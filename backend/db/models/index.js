@@ -11,7 +11,6 @@ const config = require('../../config/database')[env];
 const db = {};
 
 
-
 let sequelize;
 
 
