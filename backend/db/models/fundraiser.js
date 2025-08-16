@@ -12,40 +12,24 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
 
 
-      Fundraiser.belongsTo(models.user, {
+      Fundraiser.belongsTo(models.User, {
         foreignKey: 'ownerId', as: 'Owner',
         foreignKey: "userId",
         onDelete: "CASCADE",
         hooks: true
       });
-      // Fundraiser.belongsTo(models.donation, {
-      //   foreignKey: "donationId",
-      //   onDelete: "CASCADE",
-      //   hooks: true
-      // });
+      Fundraiser.belongsTo(models.Category, {
+        foreignKey: "categoryId",
+        onDelete: "CASCADE",
+        hooks: true
+      });
 
-      Fundraiser.hasMany(models.donations, {
+      Fundraiser.hasMany(models.Donation, {
         foreignKey: "fundraiserId", 
         onDelete: "CASCADE",
         hooks: true
       });
-      Fundraiser.hasMany(models.comments, {
-        foreignKey: "fundraiserId",
-        onDelete: "CASCADE",
-        hooks: true
-      });
-      // Fundraiser.hasMany(models.user, {
-      //   foreignKey: "fundraiserId",
-      //   onDelete: "CASCADE",
-      //   hooks: true
-      // });
-
-      Fundraiser.hasOne(models.user, {
-        foreignKey: "fundraiserId",
-        onDelete: "CASCADE",
-        hooks: true
-      });
-      Fundraiser.hasOne(models.categories, {
+      Fundraiser.hasMany(models.Comment, {
         foreignKey: "fundraiserId",
         onDelete: "CASCADE",
         hooks: true
@@ -56,13 +40,12 @@ module.exports = (sequelize, DataTypes) => {
 
   Fundraiser.init(
     {
-      userId: {
+      ownerId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         unique: false,
       },
-      
-      donationId: {
+      categoryId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         unique: false,
@@ -100,33 +83,41 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
 
-      goalProgress: {
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: false,
-        validate: {
-          isDecimal: true
-        }
-      },
+      // goalProgress: {
+      //   type: DataTypes.DECIMAL(10, 2),
+      //   allowNull: false,
+      //   validate: {
+      //     isDecimal: true
+      //   }
+      // },
       
       startDate: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATEONLY,
         allowNull: false
       },
 
       endDate: {
         type: DataTypes.DATEONLY,
         allowNull: false
-    },
-  },
+      },
+      
+      createdAt: {
+        type: DataTypes.DATE,
+      },
 
+      updatedAt: {
+        type: DataTypes.DATE,
+      },
+  },
 
     {
       sequelize,
-      modelName: 'fundraiser',
+      modelName: 'Fundraiser',
       defaultScope: {
         attributes: {
+          // exclude: ['createdAt', 'updatedAt'],
         },
-      },
+      }, 
     }
   );
   return Fundraiser;

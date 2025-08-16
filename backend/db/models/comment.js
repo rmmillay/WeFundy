@@ -6,26 +6,15 @@ module.exports = (sequelize) => {
     static associate(models) {
       // define association here
 
-      Comment.belongsTo(models.user, {
+      Comment.belongsTo(models.User, {
         foreignKey: "userId",
         onDelete: "CASCADE",
         hooks: true
       });
-      Comment.belongsTo(models.donation, {
-        foreignKey: "donationId",
-        onDelete: "CASCADE",
-        hooks: true
-      }); 
-      Comment.belongsTo(models.fundraiser, {
+      Comment.belongsTo(models.Fundraiser, {
         foreignKey: "fundraiserId",
         onDelete: "CASCADE",
         hooks: true 
-      });
-
-      Comment.hasMany(models.user, {
-        foreignKey: "commentId",
-        onDelete: "CASCADE",
-        hooks: true
       });
     };
   };
@@ -33,20 +22,36 @@ module.exports = (sequelize) => {
 
   Comment.init(
     {
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       fundraiserId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      donorId: {
-        type: DataTypes.INTEGER,
+      
+      message: {
+        type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+          len: [5, 1000]
+        }
+      },
+      
+        createdAt: {
+        type: DataTypes.DATE,
+      },
+
+      updatedAt: {
+        type: DataTypes.DATE,
       },
     },
     
 
     {
       sequelize,
-      modelName: 'comment',
+      modelName: 'Comment',
     }
   );
 

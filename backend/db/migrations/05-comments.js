@@ -5,11 +5,11 @@ let options = {};
 if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA;  // define your schema in options object
 }
-
+ 
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('comments', {
+    await queryInterface.createTable('Comments', {
 
       id: {
         type: Sequelize.INTEGER,
@@ -17,17 +17,7 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-
-      fundraiserId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: "fundraisers",
-          key: "id"
-        },
-
-      },
-      donorId: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -35,10 +25,33 @@ module.exports = {
           key: "id"
         },
       },
+      fundraiserId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "fundraisers",
+          key: "id"
+        },
+      },
+      
+      message: {
+        type: Sequelize.STRING(50),
+        allowNull: false,
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      }
 
     }, options); 
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('comments');
+    await queryInterface.dropTable('Comments');
   }
 };

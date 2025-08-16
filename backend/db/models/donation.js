@@ -7,44 +7,28 @@ module.exports = (sequelize) => {
       // define association here
 
 
-      Donation.belongsTo(models.user, {
+      Donation.belongsTo(models.User, {
+        foreignKey: 'donorId', as: 'Donor',
         foreignKey: "userId",
         onDelete: "CASCADE",
         hooks: true
       });
-      Donation.belongsTo(models.fundraiser, {
+      Donation.belongsTo(models.Fundraiser, {
         foreignKey: "fundraiserId",
         onDelete: "CASCADE",
         hooks: true 
       });
-      // Donation.hasMany(models.fundraiser, {
-      //   foreignKey: "donationId",
-      //   onDelete: "CASCADE",
-      //   hooks: true
-      // });
-
-      Donation.hasOne(models.user, {
-        foreignKey: "donationId",
-        onDelete: "CASCADE",
-        hooks: true
-      });
-      Donation.hasOne(models.fundraiser, {
-        foreignKey: "donationId",
-        onDelete: "CASCADE",
-        hooks: true 
-      });
-      
-
     };
   };
 
   Donation.init(
     {
-      fundraiserId: {
+
+      donorId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      userId: {
+      fundraiserId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
@@ -67,7 +51,12 @@ module.exports = (sequelize) => {
     
     {
       sequelize,
-      modelName: 'donation',
+      modelName: 'Donation',
+      // defaultScope: {
+      //   attributes: {
+      //     exclude: ['createdAt', 'updatedAt'],
+      //   },
+      // },
     }
   );
 
