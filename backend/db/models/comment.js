@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
       userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-      },
+      }, 
       fundraiserId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -34,7 +34,7 @@ module.exports = (sequelize) => {
       message: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
+        validate: { 
           len: [5, 1000]
         }
       },

@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
 
   Category.init(
     {
-
+//userId not needed?
       userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       
-      categoryName: {
+      categoryName: { 
         type: DataTypes.STRING,
         allowNull: false,
       },

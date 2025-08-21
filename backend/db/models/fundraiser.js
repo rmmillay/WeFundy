@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   Fundraiser.init(
-    {
+    { 
       ownerId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
         unique: false,
       },
 
-      country: {
+      country: { 
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -68,7 +68,7 @@ module.exports = (sequelize, DataTypes) => {
       },
 
       description: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING, 
         allowNull: false,
         validate: {
           len: [5, 1000]

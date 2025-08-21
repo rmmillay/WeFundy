@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
       donationAmount: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
-        validate: {
+        validate: { 
           isDecimal: true
         }
       },
