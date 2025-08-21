@@ -1,20 +1,37 @@
 'use strict';
-const {
-  Model,
-  Validator
-} = require('sequelize');
+const { Model, Validator } = require('sequelize');
+ 
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
+  class User extends Model { 
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      // define association here\ 
+ 
+      User.hasMany(models.Fundraiser, {
+        foreignKey: "ownerId",
+        as: "Owner",
+        onDelete: "CASCADE",
+        hooks: true
+      });
+      User.hasMany(models.Donation, {
+        foreignKey: "userId",
+        onDelete: "CASCADE",
+        hooks: true
+      });
+      User.hasMany(models.Comment, {
+        foreignKey: "userId", 
+        onDelete: "CASCADE",
+        hooks: true
+      });
     }
   }
-  User.init({
+
+  User.init(
+    {
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -41,11 +58,10 @@ module.exports = (sequelize, DataTypes) => {
         len: [60, 60]
       }
     },
-    profileImg: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: ''
-    }
+    // profileImg: {
+    //   type: DataTypes.STRING,
+    //   defaultValue: ''
+    // }
   }, {
     sequelize,
     modelName: 'User',
