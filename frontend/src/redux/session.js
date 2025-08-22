@@ -35,7 +35,7 @@ export const thunkLogin = (credentials) => async dispatch => {
         body: JSON.stringify({credential: email, password})
     });
 
-    if (response.ok) {
+    if (response.ok) { 
         const data = await response.json();
         dispatch(setUser(data));
     } else if (response.status < 500) {
@@ -75,7 +75,7 @@ export const thunkLogout = () => async (dispatch) => {
 const initialState = { user: null };
 
 function sessionReducer(state = initialState, action) {
-    let newState;
+    // let newState;
     switch (action.type) {
         case SET_USER:
             return { ...state, user: action.payload };
