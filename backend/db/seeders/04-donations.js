@@ -11,7 +11,7 @@ module.exports = {
     await Donation.bulkCreate(
       [
         {
-          fundraiserId: 1,
+          fundraiserId: 1, 
           donorId: 1,
           donationAmount: 50.00,
           message: "Here ya go",

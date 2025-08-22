@@ -9,7 +9,6 @@ module.exports = (sequelize) => {
 
       Donation.belongsTo(models.User, {
         foreignKey: 'donorId', as: 'Donor',
-        foreignKey: "userId",
         onDelete: "CASCADE",
         hooks: true
       });
