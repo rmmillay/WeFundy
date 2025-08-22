@@ -16,16 +16,7 @@ module.exports = (sequelize) => {
 
   Category.init(
     {
-//userId not needed?
-      userId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      fundraiserId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      
+  
       categoryName: { 
         type: DataTypes.STRING,
         allowNull: false,
