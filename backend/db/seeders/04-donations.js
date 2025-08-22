@@ -11,7 +11,7 @@ module.exports = {
     await Donation.bulkCreate(
       [
         {
-          donorId: 1,
+          userId: 1,
           fundraiserId: 1, 
           donationAmount: 50.00,
           message: "Here ya go",
@@ -19,7 +19,7 @@ module.exports = {
           //updated_at: "2025-02-11"
         },
         { 
-          donorId: 2,
+          userId: 2,
           fundraiserId: 2,
           donationAmount: 20.00,
           message: "Best wishes",
@@ -27,7 +27,7 @@ module.exports = {
           //updated_at: "2025-02-15"
         },
         {  
-          donorId: 3,
+          userId: 3,
           fundraiserId: 3,
           donationAmount: 100.00,
           message: "Good luck",
@@ -35,7 +35,7 @@ module.exports = {
           //updated_at: "2025-02-18"
         },
         { 
-          donorId: 4,
+          userId: 4,
           fundraiserId: 4,
           donationAmount: 35.00,
           message: "Hope this helps",
@@ -43,7 +43,7 @@ module.exports = {
           //updated_at: "2025-02-22"
         },
         {
-          donorId: 5,
+          userId: 5,
           fundraiserId: 5,
           donationAmount: 15.00,
           message: "Great cause!",
@@ -51,7 +51,7 @@ module.exports = {
           //updated_at: "2025-02-28"
         }, 
         {
-          donorId: 6,
+          userId: 6,
           fundraiserId: 6,
           donationAmount: 200.00,
           message: "Good ideas!",
@@ -59,7 +59,7 @@ module.exports = {
           //updated_at: "2025-03-01"
         },
         {
-          donorId: 7,
+          userId: 7,
           fundraiserId: 7,
           donationAmount: 10.00,
           message: "I support that",

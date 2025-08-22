@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
 
 
       Donation.belongsTo(models.User, {
-        foreignKey: 'donorId', as: 'Donor',
+        foreignKey: 'userId',
         onDelete: "CASCADE",
         hooks: true
       });
@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   Donation.init(
     {
 
-      donorId: {
+      userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       }, 
