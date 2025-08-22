@@ -1,3 +1,4 @@
-import OpenModalButton from './OpenModalButton';
+import OpenModalButton from '././OpenModalButtton';
+
 
 export default OpenModalButton;

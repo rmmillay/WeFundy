@@ -7,7 +7,8 @@ import { router } from "./router";
 import * as sessionActions from "./redux/session";
 import "./index.css";
 import { csrfFetch, restoreCSRF } from "./redux/csrf";
-//import App from './App'; ?
+import { Modal, ModalProvider } from "./context/Modal";
+
 
 const store = configureStore();
 //if (process.env.NODE_ENV !== 'production') {
@@ -22,14 +23,12 @@ if (import.meta.env.MODE !== "production") {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <ModalProvider>
     <ReduxProvider store={store}>
       <RouterProvider router={router} /> 
     </ReduxProvider>
+    <Modal />
+    </ModalProvider>
   </React.StrictMode>
 );
-//   <React.StrictMode>
-//     <Provider store={store}>
-//       <App />
-//     </Provider>
-//   </React.StrictMode>
-// ); *?
+
