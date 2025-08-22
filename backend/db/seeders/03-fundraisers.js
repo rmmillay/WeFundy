@@ -68,7 +68,7 @@ module.exports = {
         endDate: '2024-08-03'
       },
       {
-        ownerId: 1,
+        ownerId: 6,
         categoryId: 6,
         country: "Africa", 
         fundName: "Starvin Marvin",
@@ -79,7 +79,7 @@ module.exports = {
         endDate: '2025-06-11'
       },
       {
-        ownerId: 2,
+        ownerId: 7,
         categoryId: 7,
         country: "England", 
         fundName: "Oxford",
