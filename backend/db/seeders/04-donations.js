@@ -34,33 +34,33 @@ module.exports = {
           //created_at: "2025-02-18",
           //updated_at: "2025-02-18"
         },
-        {donorId: 4,
+        { 
+          donorId: 4,
           fundraiserId: 4,
-          
           donationAmount: 35.00,
           message: "Hope this helps",
           //created_at: "2025-02-21",
           //updated_at: "2025-02-22"
         },
-        {donorId: 5,
+        {
+          donorId: 5,
           fundraiserId: 5,
-          
           donationAmount: 15.00,
           message: "Great cause!",
           //created_at: "2025-02-25",
           //updated_at: "2025-02-28"
         }, 
-        {donorId: 1,
+        {
+          donorId: 1,
           fundraiserId: 6,
-          
           donationAmount: 200.00,
           message: "Good ideas!",
           //created_at: "2025-03-01",
           //updated_at: "2025-03-01"
         },
-        {donorId: 4,
+        {
+          donorId: 4,
           fundraiserId: 3,
-          
           donationAmount: 10.00,
           message: "I support that",
           //created_at: "2025-03-05",
@@ -73,7 +73,7 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    options.tableName = "Donations";
+    options.tableName = "Donation";
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {}, {});
   },

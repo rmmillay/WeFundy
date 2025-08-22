@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
       donorId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-      },
+      }, 
       fundraiserId: {
         type: DataTypes.INTEGER,
         allowNull: false,
