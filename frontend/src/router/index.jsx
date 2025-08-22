@@ -2,16 +2,16 @@ import { createBrowserRouter } from 'react-router-dom';
 import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
-import Splash from '../components/Splash';
+import Fundraisers from '../components/Splash/Fundraisers';
 
 export const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
-      {
+      { 
         path: "/",
-        element: <Splash />,
-      },
+        element: <Fundraisers />,
+      }, 
       {
         path: "login",
         element: <LoginFormPage />,
