@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
 
       Fundraiser.belongsTo(models.User, {
         foreignKey: 'ownerId', as: 'Owner',
-        foreignKey: "userId",
         onDelete: "CASCADE",
         hooks: true
       });
