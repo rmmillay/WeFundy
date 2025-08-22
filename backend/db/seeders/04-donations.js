@@ -51,7 +51,7 @@ module.exports = {
           //updated_at: "2025-02-28"
         }, 
         {
-          donorId: 1,
+          donorId: 6,
           fundraiserId: 6,
           donationAmount: 200.00,
           message: "Good ideas!",
@@ -59,8 +59,8 @@ module.exports = {
           //updated_at: "2025-03-01"
         },
         {
-          donorId: 4,
-          fundraiserId: 3,
+          donorId: 7,
+          fundraiserId: 7,
           donationAmount: 10.00,
           message: "I support that",
           //created_at: "2025-03-05",
@@ -73,7 +73,7 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    options.tableName = "Donation";
+    options.tableName = "Donations";
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {}, {});
   },
