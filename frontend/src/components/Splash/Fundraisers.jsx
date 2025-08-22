@@ -1,22 +1,21 @@
-import { getAllFundraisersThunk } from "../../../redux/fundraisers";
+import { getAllFundraisersThunk } from "../../redux/fundraisers";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import "./Fundraisers.css";
 import { useEffect } from "react";
 
-
+ 
 function GetAllFundraisers() {
     const dispatch = useDispatch();
     const navigateTo = useNavigate();
     const sessionUser = useSelector((state) => state.session.user);
-    const fundraisers = useSelector((state) => state.fundraiser);
-    const allFundraisers = useSelector(state => state.fundraiser.allFundraisers);
+    const allFundraisers = useSelector(state => state.fundraisers.allFundraisers);
 
     useEffect(() => {
-        if (fundraisers.allFundraisers.length === 0){
+        if (allFundraisers.length === 0){
             dispatch(getAllFundraisersThunk());
         }
-    }, [dispatch, fundraisers.allFundraisers.length]);
+    }, [dispatch, allFundraisers.length]);
        
    console.log(allFundraisers)
     useEffect(
