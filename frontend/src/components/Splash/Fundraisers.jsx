@@ -7,27 +7,28 @@ import { useEffect } from "react";
  
 function GetAllFundraisers() {
     const dispatch = useDispatch();
-    const navigateTo = useNavigate();
-    const sessionUser = useSelector((state) => state.session.user);
-    const allFundraisers = useSelector(state => state.fundraisers.allFundraisers);
+    const navigateTo = useNavigate(); 
+    // const sessionUser = useSelector((state) => state.session.user);
+    const allFundraisers = useSelector(
+      (state) => state.fundraisers.allFundraisers);
 
     useEffect(() => {
         if (allFundraisers.length === 0){
             dispatch(getAllFundraisersThunk());
         }
-    }, [dispatch, allFundraisers.length]);
+    }, [dispatch, allFundraisers.length]); 
        
-   console.log(allFundraisers)
-    useEffect(
-        function(){ 
+  //  console.log(allFundraisers)
+    // useEffect(
+    //     function(){ 
 
-            if (!sessionUser){
-                navigateTo('/')
-            }
-        }, [sessionUser, navigateTo]
-    );
+    //         if (!sessionUser){
+    //             navigateTo('/login')
+    //         }
+    //     }, [sessionUser, navigateTo]
+    // );
 
-    if (!sessionUser) return null
+    // if (!sessionUser) return null
 
      return (
     <div className="g-all-wrapper">
@@ -36,9 +37,8 @@ function GetAllFundraisers() {
             <h1 className="h1-heading">Choose your Fundraiser O_0</h1>
         </span>
 
-          <h2 className="h2-fundraisers-heading">Fundraisers for {sessionUser.user_name} {sessionUser.email}</h2>
       <ul>
-        {allFundraisers.map(fundraiser => (
+        {allFundraisers.map((fundraiser) => (
           <li key={fundraiser.id} className="fundraiser-item" id="no-dot">
              <Link to={`/fundraisers/${fundraiser.id}`}>
 

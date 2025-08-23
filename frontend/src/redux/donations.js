@@ -134,7 +134,7 @@
 //             const fundraisersArr = action.payload;
 //             newState = { ...state };
 //             newState.allFundraisers = fundraisersArr;
-//             for (let serv of fundraisersArr) {
+//             for (let serv of fundraisersArr) { 
 //                 newById[serv.id] = serv;
 //             }
 //             newState.byId = newById;
