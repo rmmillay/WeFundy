@@ -4,7 +4,7 @@ const CREATE_A_FUNDRAISER = "fundraisers/createAFundraiser";
 const DELETE_A_FUNDRAISER = "fundraisers/deleteAFundraiser";
 const GET_ONE_FUNDRAISER = "fundraisers/getOneFundraiser";
 const UPDATE_FUNDRAISER = "fundraisers/updateFundraiser";
-
+ 
 
 // -- ACTION CREATOR --
 export const getAllFundraisersAction = (data) => ( {
@@ -33,11 +33,11 @@ export const updateFundraiserAction = (fundraiser) => ({
 });
 
 // -- THUNK ACTION --
-// ✅✅
+// 
 export const getAllFundraisersThunk = () => async (dispatch) => {
     try{
 
-        const response = await fetch("/api/fundraiser");
+        const response = await fetch("/api/fundraisers");
         if (response.ok) {
             const data = await response.json();
             dispatch(getAllFundraisersAction(data));
@@ -62,7 +62,7 @@ export const createAFundraiserThunk = (fundraiser) => async (dispatch) => {
         if (response.ok) {
             const data = await response.json();
             dispatch(createAFundraiserAction(data));
-            return data;
+            return data; 
         }else {
             throw response;
         }

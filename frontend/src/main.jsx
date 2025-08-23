@@ -7,7 +7,7 @@ import { router } from "./router";
 import * as sessionActions from "./redux/session";
 import "./index.css";
 import { csrfFetch, restoreCSRF } from "./redux/csrf";
-//import App from './App'; ?
+
 
 const store = configureStore();
 //if (process.env.NODE_ENV !== 'production') {
@@ -27,9 +27,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </ReduxProvider>
   </React.StrictMode>
 );
-//   <React.StrictMode>
-//     <Provider store={store}>
-//       <App />
-//     </Provider>
-//   </React.StrictMode>
-// ); *?
+

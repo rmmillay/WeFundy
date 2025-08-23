@@ -1,15 +1,14 @@
 'use strict';
 const { Model, DataTypes } = require('sequelize');
 
-module.exports = (sequelize) => {
+module.exports = (sequelize, DataTypes) => {
   class Donation extends Model {
     static associate(models) {
       // define association here
 
 
       Donation.belongsTo(models.User, {
-        foreignKey: 'donorId', as: 'Donor',
-        foreignKey: "userId",
+        foreignKey: 'userId',
         onDelete: "CASCADE",
         hooks: true
       });
@@ -18,16 +17,16 @@ module.exports = (sequelize) => {
         onDelete: "CASCADE",
         hooks: true 
       });
-    };
-  };
+    }
+  }
 
   Donation.init(
     {
 
-      donorId: {
+      userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-      },
+      }, 
       fundraiserId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -47,16 +46,23 @@ module.exports = (sequelize) => {
           len: [5, 1000]
         }
       },
+      createdAt: {
+        type: DataTypes.DATE,
+      },
+
+      updatedAt: {
+        type: DataTypes.DATE,
+      },
     },
     
     {
       sequelize,
       modelName: 'Donation',
-      // defaultScope: {
-      //   attributes: {
+      defaultScope: {
+        attributes: {
       //     exclude: ['createdAt', 'updatedAt'],
-      //   },
-      // },
+        },
+      },
     }
   );
 

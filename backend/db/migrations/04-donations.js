@@ -17,15 +17,7 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      fundraiserId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: "fundraisers",
-          key: "id"
-        },
-      }, 
-      donorId: {
+        userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -33,7 +25,15 @@ module.exports = {
           key: "id"
         },
       },
-
+      fundraiserId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "Fundraisers",
+          key: "id"
+        },
+      }, 
+      
       donationAmount: {
           type: Sequelize.DECIMAL(100, 2),
           allowNull: false,
